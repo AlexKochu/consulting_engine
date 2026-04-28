@@ -87,7 +87,7 @@
     </style>
     <title>StratifyAI — Intelligent Business Decision Engine</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
     <script>
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.add('light-theme');
@@ -125,12 +125,10 @@
             <p class="subtitle">Configure your financial and market attributes to generate personalized strategic insights.</p>
         </div>
 
-        {% if error %}
-        <div class="error-msg">{{ error }}</div>
-        {% endif %}
+        <div class="error-msg" id="errorMsg" style="display: none;"></div>
 
         <div class="glass-card">
-            <form action="/analyze" method="POST" id="mainForm">
+            <form id="mainForm">
                 <div class="form-group">
                     <label for="problem_type">Select Business Problem</label>
                     <select name="problem_type" id="problem_type" required>
@@ -258,6 +256,44 @@
                     document.getElementById('current_price').required = true;
                     document.getElementById('current_cost').required = true;
                 }
+            }
+        });
+
+        const API_URL = 'http://127.0.0.1:5001';
+        const form = document.getElementById('mainForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            errorMsg.style.display = 'none';
+            btn.innerText = 'Analyzing...';
+            btn.disabled = true;
+
+            const formData = new FormData(form);
+            const payload = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(`${API_URL}/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.error) {
+                    throw new Error(data.error || 'Failed to analyze');
+                }
+
+                sessionStorage.setItem('analysisResult', JSON.stringify(data));
+                window.location.href = 'result.html';
+            } catch (err) {
+                errorMsg.innerText = err.message;
+                errorMsg.style.display = 'block';
+                btn.innerText = 'Run Analysis';
+                btn.disabled = false;
             }
         });
     </script>

@@ -1,26 +1,26 @@
 :root {
-    --bg-color: #0A0F1A;
-    --card-bg: #131B2A;
-    --border-color: rgba(255, 255, 255, 0.05);
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --accent-primary: #22C55E;
-    --accent-hover: #4ade80;
-    --accent-gradient: linear-gradient(135deg, #22C55E, #4ade80);
+    --bg-color: #000000;
+    --card-bg: #000000;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --accent-primary: #FF7A33; /* Lighter Orange */
+    --accent-hover: #E05C11;
+    --accent-gradient: linear-gradient(135deg, #FF7A33, #EF4444);
     --success: #22C55E;
-    --warning: #f59e0b;
-    --danger: #ef4444;
+    --warning: #EA580C; /* Orange accent from blackbox UI */
+    --danger: #EF4444;
 }
 
 body.light-theme {
     --bg-color: #F8FAF9;
     --card-bg: #FFFFFF;
-    --border-color: rgba(0, 0, 0, 0.05);
-    --text-primary: #1E293B;
-    --text-secondary: #64748B;
-    --accent-primary: #16A34A;
-    --accent-hover: #15803d;
-    --accent-gradient: linear-gradient(135deg, #16A34A, #15803d);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --text-primary: #000000;
+    --text-secondary: #52525B;
+    --accent-primary: #FF7A33;
+    --accent-hover: #E05C11;
+    --accent-gradient: linear-gradient(135deg, #FF7A33, #EF4444);
     --success: #16A34A;
 }
 
@@ -39,10 +39,12 @@ body {
     flex-direction: column;
     align-items: center;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: center;
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 body.light-theme {
@@ -63,13 +65,13 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 800;
     margin-bottom: 10px;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -0.5px;
+    letter-spacing: -1.5px;
 }
 
 h2 {
@@ -100,16 +102,16 @@ p {
 .glass-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 24px;
+    border-radius: 8px;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .form-group {
@@ -126,9 +128,9 @@ label {
 input, select {
     width: 100%;
     padding: 16px 20px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 6px;
     color: var(--text-primary);
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -151,11 +153,11 @@ option {
 
 .btn {
     display: inline-block;
-    background: var(--accent-gradient);
-    color: #0A0F1A;
+    background: var(--accent-primary);
+    color: #FFFFFF;
     padding: 16px 32px;
     border: none;
-    border-radius: 30px;
+    border-radius: 4px;
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
@@ -163,11 +165,12 @@ option {
     text-align: center;
     width: 100%;
     text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
-    transform: translateY(-2px);
+    background: var(--accent-hover);
+    transform: translateY(-1px);
 }
 
 .btn-secondary {
