@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .theme-toggle-nav {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .theme-toggle-nav:hover {
+            color: var(--text-primary);
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: var(--text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .theme-toggle-nav {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .theme-toggle-nav:hover {
+            color: var(--text-primary);
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: var(--text-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+    <title>StratifyAI — Intelligent Business Decision Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-theme');
+        }
+        function toggleTheme() {
+            document.documentElement.classList.toggle('light-theme');
+            document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'light') {
+                document.body.classList.add('light-theme');
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 22h20L12 2z" fill="var(--accent-primary)"/>
+            </svg>
+            STRATIFYAI
+        </a>
+        <button class="theme-toggle-nav" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+        </button>
+    </nav>
+    <div class="container">
+        <div class="page-title">
+            <h1>Strategy Builder</h1>
+            <p class="subtitle">Configure your financial and market attributes to generate personalized strategic insights.</p>
+        </div>
+
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+
+        <div class="glass-card">
+            <form action="/analyze" method="POST" id="mainForm">
+                <div class="form-group">
+                    <label for="problem_type">Select Business Problem</label>
+                    <select name="problem_type" id="problem_type" required>
+                        <option value="" disabled selected>-- Select an option --</option>
+                        <option value="pricing">Pricing Strategy</option>
+                        <option value="market">Market Entry</option>
+                        <option value="cost">Cost Reduction</option>
+                    </select>
+                </div>
+
+                <!-- Pricing Section -->
+                <div id="section_pricing" class="dynamic-section">
+                    <h3>Pricing Inputs</h3>
+                    <p style="font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; font-style: italic;">
+                        Example: If your price is too high in a price-sensitive market, reducing it may increase demand and overall profit.
+                    </p>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="p_industry">Industry</label>
+                            <select name="industry" id="p_industry">
+                                <option value="SaaS">SaaS</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Services">Services</option>
+                                <option value="Consulting">Consulting</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="current_price">Current Price ($)</label>
+                            <input type="number" step="0.01" name="current_price" id="current_price" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="current_cost">Cost per Customer / Unit ($)</label>
+                            <input type="number" step="0.01" name="current_cost" id="current_cost" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Market Entry Section -->
+                <div id="section_market" class="dynamic-section">
+                    <h3>Strategic Priorities (1-10)</h3>
+                    <p style="font-size: 0.9em; color: #94a3b8; margin-bottom: 15px; font-style: italic;">
+                        This analysis ranks markets based on growth, demand, competition, and income to identify the best expansion opportunity.
+                    </p>
+                    <p>Assign importance to each factor for your expansion.</p>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="weight_growth">Market Growth</label>
+                            <input type="number" name="weight_growth" id="weight_growth" min="1" max="10" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight_demand">Consumer Demand</label>
+                            <input type="number" name="weight_demand" id="weight_demand" min="1" max="10" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight_competition">Low Competition</label>
+                            <input type="number" name="weight_competition" id="weight_competition" min="1" max="10" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight_income">Average Income</label>
+                            <input type="number" name="weight_income" id="weight_income" min="1" max="10" value="5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Reduction Section -->
+                <div id="section_cost" class="dynamic-section">
+                    <h3>Current Cost Structure</h3>
+                    <div class="form-group">
+                        <label for="c_industry">Industry</label>
+                        <select name="industry" id="c_industry">
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Logistics">Logistics</option>
+                        </select>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="cost_cogs">COGS ($)</label>
+                            <input type="number" name="cost_cogs" id="cost_cogs" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="cost_marketing">Marketing ($)</label>
+                            <input type="number" name="cost_marketing" id="cost_marketing" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="cost_rnd">R&D ($)</label>
+                            <input type="number" name="cost_rnd" id="cost_rnd" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="cost_admin">Administrative ($)</label>
+                            <input type="number" name="cost_admin" id="cost_admin" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="cost_it">IT Infrastructure ($)</label>
+                            <input type="number" name="cost_it" id="cost_it" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn" style="display: none; margin-top: 20px;">Run Analysis</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const select = document.getElementById('problem_type');
+        const sections = document.querySelectorAll('.dynamic-section');
+        const btn = document.getElementById('submitBtn');
+
+        select.addEventListener('change', function() {
+            // Hide all
+            sections.forEach(s => s.classList.remove('active'));
+            
+            // Show selected
+            if (this.value) {
+                document.getElementById('section_' + this.value).classList.add('active');
+                btn.style.display = 'block';
+                
+                // Add required attributes to active section inputs
+                const activeInputs = document.querySelectorAll('#section_' + this.value + ' input');
+                if(this.value === 'pricing') {
+                    document.getElementById('current_price').required = true;
+                    document.getElementById('current_cost').required = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+industry,cost_category,avg_percent,benchmark_percent,variance_flag
+Logistics,Admin,15.1,15.4,0
+Manufacturing,IT Infrastructure,5.2,11.2,0
+Retail,Admin,21.4,16.8,1
+Retail,Marketing,14.3,14.4,0
+Healthcare,COGS,39.8,37.7,0
+Tech,COGS,36.5,38.3,0
+Healthcare,IT Infrastructure,17.7,9.5,1
+Logistics,Marketing,14.8,14.5,0
+Tech,Marketing,18.5,13.3,1
+Logistics,R&D,9.0,10.3,0
+Logistics,Admin,17.1,15.4,1
+Retail,Admin,21.9,15.8,1
+Manufacturing,Marketing,12.4,14.9,0
+Retail,COGS,42.5,42.0,0
+Tech,COGS,35.1,41.3,0
+Healthcare,COGS,43.6,37.4,1
+Tech,Marketing,22.0,15.6,1
+Retail,Admin,8.9,15.9,0
+Retail,R&D,19.9,9.1,1
+Tech,COGS,36.9,39.9,0
+Logistics,Admin,19.5,21.6,0
+Retail,R&D,14.2,9.6,1
+Tech,IT Infrastructure,5.3,9.9,0
+Healthcare,COGS,41.4,42.5,0
+Tech,Admin,16.7,16.7,0
+Healthcare,COGS,41.6,36.2,1
+Healthcare,IT Infrastructure,8.3,10.4,0
+Tech,IT Infrastructure,15.9,10.7,1
+Tech,R&D,5.8,8.1,0
+Tech,Marketing,17.5,15.5,1
+Tech,Marketing,22.9,16.6,1
+Logistics,IT Infrastructure,1.0,10.2,0
+Healthcare,Marketing,22.6,13.8,1
+Retail,Marketing,17.8,16.1,1
+Tech,Marketing,6.9,14.8,0
+Healthcare,COGS,31.6,31.7,0
+Healthcare,IT Infrastructure,6.1,10.3,0
+Manufacturing,COGS,33.7,41.0,0
+Retail,Admin,4.5,13.8,0
+Manufacturing,COGS,37.9,41.0,0
+Manufacturing,COGS,49.9,51.7,0
+Tech,Marketing,10.8,15.2,0
+Retail,IT Infrastructure,14.5,7.7,1
+Tech,COGS,43.6,39.9,0
+Retail,COGS,41.4,40.1,0
+Manufacturing,Admin,15.0,13.3,1
+Retail,Admin,14.6,12.2,1
+Tech,COGS,38.1,40.1,0
+Healthcare,R&D,8.7,10.3,0
+Healthcare,R&D,14.1,11.1,1
+Retail,COGS,38.8,44.4,0
+Tech,COGS,38.8,35.8,0
+Retail,IT Infrastructure,3.9,10.0,0
+Tech,Admin,18.5,15.3,1
+Logistics,R&D,16.0,12.2,1
