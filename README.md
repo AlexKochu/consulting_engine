@@ -1,7 +1,7 @@
 <div align="center">
   <br />
-  <img src="https://img.shields.io/badge/-%F0%9F%A7%A0%20CONSULTING%20DECISION%20ENGINE-0a0a0a?style=for-the-badge&labelColor=0a0a0a" alt="CDE" />
-  <br /><br />
+
+  <h1>Consulting Decision Engine</h1>
 
   <p>
     <strong>A Production-Grade, AI-Powered Strategic Advisory Platform</strong><br/>
@@ -19,12 +19,13 @@
   </p>
 
   <p>
-    <a href="#-overview">Overview</a> &nbsp;·&nbsp;
-    <a href="#-modules">Modules</a> &nbsp;·&nbsp;
-    <a href="#-architecture">Architecture</a> &nbsp;·&nbsp;
-    <a href="#-getting-started">Getting Started</a> &nbsp;·&nbsp;
-    <a href="#-deployment">Deployment</a> &nbsp;·&nbsp;
-    <a href="#-contributing">Contributing</a>
+    <a href="#overview">Overview</a> &nbsp;·&nbsp;
+    <a href="#modules">Modules</a> &nbsp;·&nbsp;
+    <a href="#architecture">Architecture</a> &nbsp;·&nbsp;
+    <a href="#getting-started">Getting Started</a> &nbsp;·&nbsp;
+    <a href="#deployment">Deployment</a> &nbsp;·&nbsp;
+    <a href="#project-structure">Project Structure</a> &nbsp;·&nbsp;
+    <a href="#contributing">Contributing</a>
   </p>
 
   <br />
@@ -33,9 +34,9 @@
 
 <br />
 
-## 📌 Overview
+## Overview
 
-The **Consulting Decision Engine (CDE)** is a full-stack web application that transforms complex business problems into structured, boardroom-ready recommendations — fast.
+The **Consulting Decision Engine (CDE)** is a full-stack web application that transforms complex business problems into structured, boardroom-ready recommendations.
 
 It does this by combining two layers that most tools keep separate:
 
@@ -46,10 +47,10 @@ The result is a platform where every insight is mathematically anchored. No hall
 
 <br />
 
-## 🧩 Modules
+## Modules
 
 <details>
-<summary><strong>📊 &nbsp;Pricing Strategy Optimization</strong></summary>
+<summary><strong>Pricing Strategy Optimization</strong></summary>
 
 <br />
 
@@ -63,7 +64,7 @@ Analyzes historical price elasticity and current cost structures to simulate rev
 </details>
 
 <details>
-<summary><strong>🌍 &nbsp;Market Entry Evaluation</strong></summary>
+<summary><strong>Market Entry Evaluation</strong></summary>
 
 <br />
 
@@ -77,7 +78,7 @@ Applies a weighted Multi-Criteria Decision Matrix (MCDM) across competitive dens
 </details>
 
 <details>
-<summary><strong>📉 &nbsp;Cost Reduction & Benchmarking</strong></summary>
+<summary><strong>Cost Reduction and Benchmarking</strong></summary>
 
 <br />
 
@@ -91,11 +92,11 @@ Benchmarks current operational expenditures against synthesized industry standar
 </details>
 
 <details>
-<summary><strong>🧠 &nbsp;Generative Strategic Synthesis (Groq + Llama 3)</strong></summary>
+<summary><strong>Generative Strategic Synthesis (Groq + Llama 3)</strong></summary>
 
 <br />
 
-The platform's intelligence layer. All deterministic computation outputs are serialized and injected as structured context into Groq's inference engine. The model generates concise executive summaries, identifies second-order strategic impacts, and articulates trade-offs in plain English — ready to be dropped into a board deck.
+The platform's intelligence layer. All deterministic computation outputs are serialized and injected as structured context into Groq's inference engine. The model generates concise executive summaries, identifies second-order strategic impacts, and articulates trade-offs in plain English — ready to be inserted into a board deck.
 
 **Approach**: Zero-shot and few-shot prompting with grounded mathematical context, ensuring outputs remain factually tethered to the underlying data.
 
@@ -103,49 +104,28 @@ The platform's intelligence layer. All deterministic computation outputs are ser
 
 <br />
 
-## 🏗 Architecture
-
-```
-consulting_engine/
-│
-├── app/
-│   ├── blueprints/           # Flask route blueprints (one per analytical module)
-│   ├── models/               # Core computation engines (elasticity, MCDM, benchmarks)
-│   └── templates/            # Jinja2 HTML templates (glassmorphism UI)
-│
-├── utils/
-│   └── data_loader.py        # Synthetic market data generation pipeline
-│
-├── static/                   # CSS, client-side JS, Plotly assets
-│
-├── Dockerfile
-├── requirements.txt
-├── .env.example
-└── app.py                    # Application factory
-```
-
-<br />
+## Architecture
 
 | Layer | Technology | Role |
 |---|---|---|
 | **Frontend** | Vanilla HTML/CSS, Plotly.js | Glassmorphism UI, interactive charts |
 | **Backend** | Flask 3.0, Blueprint architecture | Routing, request handling, API orchestration |
-| **Data Engine** | Pandas, NumPy | Deterministic simulation & aggregation |
+| **Data Engine** | Pandas, NumPy | Deterministic simulation and aggregation |
 | **LLM Layer** | Groq API (Llama 3) | Executive narrative generation |
 | **Containerization** | Docker | Portable deployment |
 | **Process Manager** | Gunicorn | Production WSGI server |
 
 <br />
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-| Requirement | Version |
+| Requirement | Notes |
 |---|---|
-| Python | 3.9 or higher |
+| Python 3.9+ | Required for all backend modules |
 | Git | Any recent version |
-| Groq API Key | [Get one here →](https://console.groq.com/) |
+| Groq API Key | [Obtain here](https://console.groq.com/) |
 
 <br />
 
@@ -194,10 +174,10 @@ Open your browser and navigate to **http://localhost:5000**
 
 <br />
 
-## ☁️ Deployment
+## Deployment
 
 <details>
-<summary><strong>Option A &nbsp;—&nbsp; Render (Native Python)</strong></summary>
+<summary><strong>Option A — Render (Native Python)</strong></summary>
 
 <br />
 
@@ -216,7 +196,7 @@ Open your browser and navigate to **http://localhost:5000**
 </details>
 
 <details>
-<summary><strong>Option B &nbsp;—&nbsp; Railway (Dockerized)</strong></summary>
+<summary><strong>Option B — Railway (Dockerized)</strong></summary>
 
 <br />
 
@@ -229,11 +209,98 @@ Open your browser and navigate to **http://localhost:5000**
 
 <br />
 
-## 🤝 Contributing
+## Project Structure
 
-Contributions, bug reports, and feature requests are welcome.
+The following tree reflects the full consulting workflow of the engine — from data ingestion through analysis to AI-generated output.
 
-**Before opening a pull request**, please open an [issue](https://github.com/AlexKochu/consulting_engine/issues) first to discuss the proposed change. This keeps the review process clean and focused.
+```
+consulting_engine/
+│
+├── app/
+│   │
+│   ├── blueprints/
+│   │   ├── pricing.py                  # Pricing strategy routes
+│   │   ├── market_entry.py             # Market evaluation routes
+│   │   ├── cost_reduction.py           # Cost benchmarking routes
+│   │   └── synthesis.py               # LLM synthesis orchestration routes
+│   │
+│   ├── models/
+│   │   ├── pricing_model.py            # Price elasticity & margin simulation
+│   │   ├── mcdm_model.py              # Multi-criteria decision matrix engine
+│   │   ├── benchmarking_model.py       # Industry benchmark comparison logic
+│   │   └── groq_client.py             # Groq API wrapper & prompt templates
+│   │
+│   └── templates/
+│       ├── base.html                   # Shared layout (glassmorphism shell)
+│       ├── dashboard.html              # Landing page & module selector
+│       ├── pricing.html                # Pricing strategy UI & chart container
+│       ├── market_entry.html           # Market radar chart UI
+│       ├── cost_reduction.html         # Waterfall & heatmap UI
+│       └── synthesis.html             # Executive summary output panel
+│
+├── static/
+│   ├── css/
+│   │   └── main.css                   # Global glassmorphism styles
+│   └── js/
+│       └── charts.js                  # Plotly chart initialization helpers
+│
+├── utils/
+│   ├── data_loader.py                 # Synthetic data generation pipeline
+│   └── formatters.py                  # Output serialization for LLM context
+│
+├── data/
+│   └── synthetic/
+│       ├── pricing_data.csv            # Simulated price-volume-cost matrix
+│       ├── market_scores.csv           # Candidate market attribute scores
+│       └── cost_benchmarks.csv         # Industry benchmark expense profiles
+│
+├── prompts/
+│   ├── pricing_prompt.txt             # Few-shot prompt: pricing narrative
+│   ├── market_entry_prompt.txt        # Few-shot prompt: market entry summary
+│   ├── cost_reduction_prompt.txt      # Few-shot prompt: cost analysis narrative
+│   └── synthesis_prompt.txt           # Master prompt: full strategic synthesis
+│
+├── tests/
+│   ├── test_pricing_model.py          # Unit tests for elasticity calculations
+│   ├── test_mcdm_model.py             # Unit tests for MCDM scoring
+│   └── test_groq_client.py            # Integration tests for LLM responses
+│
+├── .env.example                       # Environment variable template
+├── requirements.txt                   # Python dependency manifest
+├── Dockerfile                         # Container definition for Railway
+├── gunicorn.conf.py                   # Gunicorn worker configuration
+└── app.py                             # Application factory (create_app)
+```
+
+### Consulting Workflow
+
+The engine follows a linear three-phase consulting pipeline:
+
+```
+[ Raw Business Input ]
+        |
+        v
+[ Phase 1 — Quantitative Analysis ]
+  Deterministic models process user inputs.
+  Pandas/NumPy compute curves, scores, and deltas.
+        |
+        v
+[ Phase 2 — Visual Reporting ]
+  Plotly renders interactive charts inline.
+  Results are displayed on the module-specific dashboard page.
+        |
+        v
+[ Phase 3 — Generative Synthesis ]
+  Serialized model outputs are injected into structured prompts.
+  Groq (Llama 3) generates the executive narrative.
+  Output is rendered on the synthesis panel — board-deck ready.
+```
+
+<br />
+
+## Contributing
+
+Contributions, bug reports, and feature requests are welcome. Please open an [issue](https://github.com/AlexKochu/consulting_engine/issues) before submitting a pull request to discuss the proposed change.
 
 ```
 1. Fork the repository
@@ -247,7 +314,7 @@ Please follow [Conventional Commits](https://www.conventionalcommits.org/) for c
 
 <br />
 
-## 📜 License
+## License
 
 This project is released under the **MIT License**. See the [`LICENSE`](LICENSE) file for full terms.
 
@@ -256,7 +323,7 @@ This project is released under the **MIT License**. See the [`LICENSE`](LICENSE)
 <div align="center">
   <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" />
   <br /><br />
-  <sub>Built with precision by <a href="https://github.com/AlexKochu"><strong>Alex</strong></a></sub>
+  <sub>Built by <a href="https://github.com/AlexKochu"><strong>Alex</strong></a></sub>
   <br />
-  <sub>If this project helped you, consider giving it a ⭐</sub>
+  <sub>If this project helped you, consider giving it a star.</sub>
 </div>
