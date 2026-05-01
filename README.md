@@ -1,31 +1,36 @@
 <div align="center">
   <br />
 
-  <h1>Consulting Decision Engine</h1>
+  <h1>StratifyAI — Consulting Decision Engine</h1>
 
   <p>
     <strong>A Production-Grade, AI-Powered Strategic Advisory Platform</strong><br/>
-    <sub>Bridging quantitative rigor with executive-grade generative intelligence.</sub>
+    <sub>Bridging deterministic financial rigor with executive-grade generative intelligence.</sub>
   </p>
 
   <br />
 
   <p>
     <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white" /></a>&nbsp;
-    <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Flask-3.0.2-000000?style=flat-square&logo=flask&logoColor=white" /></a>&nbsp;
-    <a href="https://groq.com/"><img src="https://img.shields.io/badge/Groq-Llama%203-F55036?style=flat-square" /></a>&nbsp;
+    <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Flask-3.0-000000?style=flat-square&logo=flask&logoColor=white" /></a>&nbsp;
+    <a href="https://groq.com/"><img src="https://img.shields.io/badge/Groq-Llama%203.1-F55036?style=flat-square" /></a>&nbsp;
     <a href="https://plotly.com/"><img src="https://img.shields.io/badge/Plotly-Interactive-3F4F75?style=flat-square&logo=plotly&logoColor=white" /></a>&nbsp;
+    <a href="https://vercel.com/"><img src="https://img.shields.io/badge/Vercel-Frontend-000000?style=flat-square&logo=vercel&logoColor=white" /></a>&nbsp;
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22C55E?style=flat-square" /></a>
   </p>
 
   <p>
     <a href="#overview">Overview</a> &nbsp;·&nbsp;
-    <a href="#modules">Modules</a> &nbsp;·&nbsp;
+    <a href="#strategy-engines">Strategy Engines</a> &nbsp;·&nbsp;
     <a href="#architecture">Architecture</a> &nbsp;·&nbsp;
     <a href="#getting-started">Getting Started</a> &nbsp;·&nbsp;
     <a href="#deployment">Deployment</a> &nbsp;·&nbsp;
     <a href="#project-structure">Project Structure</a> &nbsp;·&nbsp;
     <a href="#contributing">Contributing</a>
+  </p>
+
+  <p>
+    <strong>Live Demo →</strong> <a href="https://consulting-engine.vercel.app/">consulting-engine.vercel.app</a>
   </p>
 
   <br />
@@ -36,25 +41,25 @@
 
 ## Overview
 
-The **Consulting Decision Engine (CDE)** is a full-stack web application that transforms complex business problems into structured, boardroom-ready recommendations.
+**StratifyAI** is a full-stack strategic advisory platform that transforms complex business problems into boardroom-ready recommendations.
 
-It does this by combining two layers that most tools keep separate:
+Most business tools operate at one of two extremes — raw data outputs (spreadsheets) or generic, unanchored AI advice (chatbots). StratifyAI bridges this gap by combining two layers that most platforms keep separate:
 
-- **Deterministic financial modeling** — rigorous simulations using real mathematical frameworks (price elasticity, MCDM scoring, benchmarking deltas)
-- **Generative AI synthesis** — Groq's high-speed Llama 3 inference translates quantitative outputs into plain-English executive narratives
+- **Deterministic financial modeling** — rigorous simulations built on real mathematical frameworks: price elasticity curves, MCDM scoring matrices, and cost benchmarking deltas
+- **Generative AI synthesis** — Groq's high-speed Llama 3.1 inference engine translates quantitative outputs into plain-English executive narratives
 
-The result is a platform where every insight is mathematically anchored. No hallucinated strategies, no generic advice — just data-grounded intelligence designed for decision-makers.
+Every insight is mathematically anchored before the AI touches it. No hallucinated strategies, no generic advice — just data-grounded intelligence built for decision-makers.
 
 <br />
 
-## Modules
+## Strategy Engines
 
 <details>
 <summary><strong>Pricing Strategy Optimization</strong></summary>
 
 <br />
 
-Analyzes historical price elasticity and current cost structures to simulate revenue and profit curves across a defined price range. Identifies the exact price point that maximizes gross margin without triggering excessive customer churn.
+Simulates revenue and profit curves across a defined price range by analyzing historical price elasticity and current cost structures. Identifies the exact price point that maximizes gross margin without triggering excessive customer churn.
 
 **Outputs**
 - Interactive revenue vs. price curves (Plotly)
@@ -68,7 +73,7 @@ Analyzes historical price elasticity and current cost structures to simulate rev
 
 <br />
 
-Applies a weighted Multi-Criteria Decision Matrix (MCDM) across competitive density, regulatory friction, and total addressable market size to objectively score and rank geographic or demographic expansion targets.
+Applies a weighted Multi-Criteria Decision Matrix (MCDM) across dimensions including competitive density, regulatory friction, and total addressable market size. Objectively scores and ranks geographic or demographic expansion targets.
 
 **Outputs**
 - Radar charts of market viability per candidate
@@ -82,7 +87,7 @@ Applies a weighted Multi-Criteria Decision Matrix (MCDM) across competitive dens
 
 <br />
 
-Benchmarks current operational expenditures against synthesized industry standards. Surfaces systemic inefficiencies and quantifies the projected bottom-line impact of targeted cost optimization initiatives.
+Benchmarks current operational expenditures — across COGS, R&D, and IT infrastructure — against synthesized industry standards. Surfaces systemic inefficiencies and quantifies the projected bottom-line impact of targeted optimization initiatives.
 
 **Outputs**
 - Cost breakdown waterfall charts
@@ -92,13 +97,13 @@ Benchmarks current operational expenditures against synthesized industry standar
 </details>
 
 <details>
-<summary><strong>Generative Strategic Synthesis (Groq + Llama 3)</strong></summary>
+<summary><strong>Generative Strategic Synthesis (Groq + Llama 3.1)</strong></summary>
 
 <br />
 
 The platform's intelligence layer. All deterministic computation outputs are serialized and injected as structured context into Groq's inference engine. The model generates concise executive summaries, identifies second-order strategic impacts, and articulates trade-offs in plain English — ready to be inserted into a board deck.
 
-**Approach**: Zero-shot and few-shot prompting with grounded mathematical context, ensuring outputs remain factually tethered to the underlying data.
+**Approach:** Zero-shot prompting with grounded mathematical context, ensuring all AI outputs remain factually tethered to pre-calculated figures. The AI explains the numbers; it does not invent them.
 
 </details>
 
@@ -108,12 +113,36 @@ The platform's intelligence layer. All deterministic computation outputs are ser
 
 | Layer | Technology | Role |
 |---|---|---|
-| **Frontend** | Vanilla HTML/CSS, Plotly.js | Glassmorphism UI, interactive charts |
-| **Backend** | Flask 3.0, Blueprint architecture | Routing, request handling, API orchestration |
-| **Data Engine** | Pandas, NumPy | Deterministic simulation and aggregation |
-| **LLM Layer** | Groq API (Llama 3) | Executive narrative generation |
-| **Containerization** | Docker | Portable deployment |
-| **Process Manager** | Gunicorn | Production WSGI server |
+| **Frontend** | Vanilla JS, CSS3, HTML5 | CARYNTH UI, glassmorphism design, responsive state management |
+| **Backend** | Python / Flask 3.0 | API orchestration, CORS handling, request routing |
+| **Data Engine** | Pandas, NumPy | Deterministic financial simulations and MCDM scoring logic |
+| **LLM Layer** | Groq API (Llama 3.1) | Zero-shot executive narrative generation |
+| **Visualization** | Plotly.js | Interactive charts and strategic heatmaps |
+| **Deployment** | Render (Backend), Vercel (Frontend) | Scalable cloud hosting with CI/CD integration |
+
+### Consulting Workflow
+
+The engine follows a linear three-phase pipeline:
+
+```
+[ Raw Business Input ]
+        |
+        v
+[ Phase 1 — Quantitative Analysis ]
+  Deterministic models process user-submitted metrics.
+  Pandas/NumPy compute elasticity curves, MCDM scores, and cost deltas.
+        |
+        v
+[ Phase 2 — Visual Reporting ]
+  Plotly renders interactive charts inline on the dashboard.
+  Results are displayed per module with drill-down capability.
+        |
+        v
+[ Phase 3 — Generative Synthesis ]
+  Serialized model outputs are injected into structured prompts.
+  Groq (Llama 3.1) generates the executive narrative.
+  Output is rendered on the synthesis panel — board-deck ready.
+```
 
 <br />
 
@@ -132,8 +161,8 @@ The platform's intelligence layer. All deterministic computation outputs are ser
 ### Step 1 — Clone the Repository
 
 ```bash
-git clone https://github.com/AlexKochu/consulting_engine.git
-cd consulting_engine
+git clone https://github.com/AlexKochu/consulting-engine.git
+cd consulting-engine
 ```
 
 ### Step 2 — Set Up the Virtual Environment
@@ -156,54 +185,65 @@ Open `.env` and add your credentials:
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-### Step 4 — Generate the Synthetic Data Model
-
-The analytics engines require a baseline data matrix before first launch. Run this once:
-
-```bash
-python utils/data_loader.py
-```
-
-### Step 5 — Launch the Application
+### Step 4 — Launch the Backend
 
 ```bash
 flask run
 ```
 
-Open your browser and navigate to **http://localhost:5000**
+### Step 5 — Serve the Frontend
+
+Open `frontend/index.html` directly in a browser, or serve it with any static file server:
+
+```bash
+npx serve frontend/
+```
+
+Navigate to **http://localhost:5000**
 
 <br />
 
 ## Deployment
 
 <details>
-<summary><strong>Option A — Render (Native Python)</strong></summary>
+<summary><strong>Option A — Render + Vercel (Recommended)</strong></summary>
 
 <br />
 
+The project ships with pre-configured deployment files for both platforms.
+
+**Backend → Render**
+
 1. Connect your GitHub repository to [Render](https://render.com) as a **Web Service**.
 2. Set the runtime to **Python 3**.
-3. Configure the following commands:
+3. Configure the following:
 
 | Setting | Value |
 |---|---|
-| **Build Command** | `pip install -r requirements.txt && python utils/data_loader.py` |
+| **Build Command** | `pip install -r requirements.txt` |
 | **Start Command** | `gunicorn "app:create_app()"` |
 
-4. Navigate to the **Environment** tab and add `GROQ_API_KEY` as a secret variable.
-5. Deploy.
+4. Add `GROQ_API_KEY` as a secret environment variable.
+5. Deploy. The included `render.yaml` handles remaining configuration automatically.
+
+**Frontend → Vercel**
+
+1. Connect your GitHub repository to [Vercel](https://vercel.com).
+2. Set the root directory to `frontend/`.
+3. Update the API base URL in `frontend/app.js` to point to your Render service URL.
+4. Deploy. The included `vercel.json` handles routing configuration automatically.
 
 </details>
 
 <details>
-<summary><strong>Option B — Railway (Dockerized)</strong></summary>
+<summary><strong>Option B — Docker (Self-Hosted)</strong></summary>
 
 <br />
 
-1. Link your GitHub repository to a new [Railway](https://railway.app) project.
-2. Railway will auto-detect the included `Dockerfile` — no additional configuration needed.
-3. Add `GROQ_API_KEY` to the service's **Variables** panel.
-4. Deploy and expose the generated public domain.
+```bash
+docker build -t stratify-ai .
+docker run -p 5000:5000 -e GROQ_API_KEY=your_key_here stratify-ai
+```
 
 </details>
 
@@ -211,18 +251,17 @@ Open your browser and navigate to **http://localhost:5000**
 
 ## Project Structure
 
-The following tree reflects the full consulting workflow of the engine — from data ingestion through analysis to AI-generated output.
-
 ```
-consulting_engine/
+consulting-engine/
 │
-├── app/
+├── backend/
+│   ├── app.py                          # Application factory (create_app)
 │   │
 │   ├── blueprints/
 │   │   ├── pricing.py                  # Pricing strategy routes
 │   │   ├── market_entry.py             # Market evaluation routes
 │   │   ├── cost_reduction.py           # Cost benchmarking routes
-│   │   └── synthesis.py               # LLM synthesis orchestration routes
+│   │   └── synthesis.py               # LLM synthesis orchestration
 │   │
 │   ├── models/
 │   │   ├── pricing_model.py            # Price elasticity & margin simulation
@@ -230,77 +269,44 @@ consulting_engine/
 │   │   ├── benchmarking_model.py       # Industry benchmark comparison logic
 │   │   └── groq_client.py             # Groq API wrapper & prompt templates
 │   │
-│   └── templates/
-│       ├── base.html                   # Shared layout (glassmorphism shell)
-│       ├── dashboard.html              # Landing page & module selector
-│       ├── pricing.html                # Pricing strategy UI & chart container
-│       ├── market_entry.html           # Market radar chart UI
-│       ├── cost_reduction.html         # Waterfall & heatmap UI
-│       └── synthesis.html             # Executive summary output panel
+│   ├── utils/
+│   │   └── formatters.py              # Output serialization for LLM context
+│   │
+│   ├── render.yaml                     # Render deployment configuration
+│   ├── gunicorn.conf.py                # Gunicorn worker configuration
+│   └── requirements.txt
 │
-├── static/
-│   ├── css/
-│   │   └── main.css                   # Global glassmorphism styles
-│   └── js/
-│       └── charts.js                  # Plotly chart initialization helpers
+├── frontend/
+│   ├── index.html                      # Application entry point
+│   ├── app.js                          # State management and API calls
+│   ├── charts.js                       # Plotly chart initialization helpers
+│   ├── styles/
+│   │   └── carynth.css                # CARYNTH UI design system
+│   └── vercel.json                     # Vercel deployment configuration
 │
-├── utils/
-│   ├── data_loader.py                 # Synthetic data generation pipeline
-│   └── formatters.py                  # Output serialization for LLM context
-│
-├── data/
-│   └── synthetic/
-│       ├── pricing_data.csv            # Simulated price-volume-cost matrix
-│       ├── market_scores.csv           # Candidate market attribute scores
-│       └── cost_benchmarks.csv         # Industry benchmark expense profiles
-│
-├── prompts/
-│   ├── pricing_prompt.txt             # Few-shot prompt: pricing narrative
-│   ├── market_entry_prompt.txt        # Few-shot prompt: market entry summary
-│   ├── cost_reduction_prompt.txt      # Few-shot prompt: cost analysis narrative
-│   └── synthesis_prompt.txt           # Master prompt: full strategic synthesis
-│
-├── tests/
-│   ├── test_pricing_model.py          # Unit tests for elasticity calculations
-│   ├── test_mcdm_model.py             # Unit tests for MCDM scoring
-│   └── test_groq_client.py            # Integration tests for LLM responses
-│
-├── .env.example                       # Environment variable template
-├── requirements.txt                   # Python dependency manifest
-├── Dockerfile                         # Container definition for Railway
-├── gunicorn.conf.py                   # Gunicorn worker configuration
-└── app.py                             # Application factory (create_app)
+├── .env.example                        # Environment variable template
+├── Dockerfile                          # Container definition
+└── README.md
 ```
 
-### Consulting Workflow
+<br />
 
-The engine follows a linear three-phase consulting pipeline:
+## Design Decisions
 
-```
-[ Raw Business Input ]
-        |
-        v
-[ Phase 1 — Quantitative Analysis ]
-  Deterministic models process user inputs.
-  Pandas/NumPy compute curves, scores, and deltas.
-        |
-        v
-[ Phase 2 — Visual Reporting ]
-  Plotly renders interactive charts inline.
-  Results are displayed on the module-specific dashboard page.
-        |
-        v
-[ Phase 3 — Generative Synthesis ]
-  Serialized model outputs are injected into structured prompts.
-  Groq (Llama 3) generates the executive narrative.
-  Output is rendered on the synthesis panel — board-deck ready.
-```
+**Why separate the AI from the calculations?**
+Standard LLMs generate numbers as part of their output, making them prone to hallucination in financial contexts. StratifyAI inverts this: Python computes all financial figures first, then the LLM is given only those verified numbers to explain. This guarantees mathematical accuracy while still producing polished, human-readable analysis.
+
+**Why Groq over OpenAI?**
+Groq's inference speed is significantly faster at equivalent output quality, which is essential for a platform where users expect near-instant narrative generation after submitting inputs.
+
+**Why Vanilla JS over a framework?**
+The frontend requirements — form handling, chart rendering, API calls, and theme toggling — are well within what Vanilla JS handles cleanly. Avoiding a build pipeline keeps the frontend lean and the Vercel deployment straightforward.
 
 <br />
 
 ## Contributing
 
-Contributions, bug reports, and feature requests are welcome. Please open an [issue](https://github.com/AlexKochu/consulting_engine/issues) before submitting a pull request to discuss the proposed change.
+Contributions, bug reports, and feature requests are welcome. Please open an [issue](https://github.com/AlexKochu/consulting-engine/issues) before submitting a pull request to discuss the proposed change.
 
 ```
 1. Fork the repository
@@ -311,6 +317,16 @@ Contributions, bug reports, and feature requests are welcome. Please open an [is
 ```
 
 Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit message formatting.
+
+<br />
+
+## Roadmap
+
+- [ ] User authentication and saved scenario history
+- [ ] PDF export for executive summaries
+- [ ] Additional strategy engines (M&A fit analysis, competitive benchmarking)
+- [ ] Scenario comparison view — side-by-side analysis across multiple inputs
+- [ ] Multi-language narrative output
 
 <br />
 
@@ -325,5 +341,5 @@ This project is released under the **MIT License**. See the [`LICENSE`](LICENSE)
   <br /><br />
   <sub>Built by <a href="https://github.com/AlexKochu"><strong>Alex</strong></a></sub>
   <br />
-  <sub>If this project helped you, consider giving it a star.</sub>
+  <sub>If this project was useful, consider leaving a star.</sub>
 </div>
