@@ -21,10 +21,11 @@ def analyze():
         payload = request.form
 
     problem_type = payload.get('problem_type')
+    print(f"DEBUG PAYLOAD: {payload}")
     
     try:
         if problem_type == 'pricing':
-            industry = payload.get('industry')
+            industry = payload.get('pricing_industry')
             try:
                 current_price = float(payload.get('current_price'))
                 current_cost = float(payload.get('current_cost'))
@@ -51,7 +52,7 @@ def analyze():
             insights = generate_insights("Market Entry", data)
             
         elif problem_type == 'cost':
-            industry = payload.get('industry')
+            industry = payload.get('cost_industry')
             try:
                 cogs = float(payload.get('cost_cogs') or 0)
                 marketing = float(payload.get('cost_marketing') or 0)
@@ -60,6 +61,10 @@ def analyze():
                 it = float(payload.get('cost_it') or 0)
             except (ValueError, TypeError):
                 return jsonify({"error": "Costs must be valid numbers."}), 400
+                
+            total_cost = cogs + marketing + rnd + admin + it
+            if total_cost <= 0:
+                return jsonify({"error": "You must provide at least one cost value greater than 0."}), 400
                 
             if any(c < 0 or c > 1e9 for c in [cogs, marketing, rnd, admin, it]):
                 return jsonify({"error": "Costs cannot be negative or exceed 1B."}), 400

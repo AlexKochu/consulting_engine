@@ -105,7 +105,7 @@
 
     <script>
         // Automatically detect environment for API URL
-        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '')
             ? 'http://127.0.0.1:5001'
             : 'https://consulting-engine-backend.onrender.com'; // UPDATE THIS TO YOUR RENDER URL
         

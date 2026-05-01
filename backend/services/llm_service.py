@@ -36,7 +36,7 @@ def generate_insights(problem_type, data_dict):
     
     try:
         response = client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="llama-3.1-8b-instant",
             messages=[
                 {"role": "system", "content": "You are a senior strategy consultant. Output sharp, analytical, valid JSON only. No emojis. No fluff."},
                 {"role": "user", "content": prompt}

@@ -148,7 +148,7 @@
                     <div class="grid-2">
                         <div class="form-group">
                             <label for="p_industry">Industry</label>
-                            <select name="industry" id="p_industry">
+                            <select name="pricing_industry" id="p_industry">
                                 <option value="SaaS">SaaS</option>
                                 <option value="E-commerce">E-commerce</option>
                                 <option value="Hardware">Hardware</option>
@@ -199,7 +199,7 @@
                     <h3>Current Cost Structure</h3>
                     <div class="form-group">
                         <label for="c_industry">Industry</label>
-                        <select name="industry" id="c_industry">
+                        <select name="cost_industry" id="c_industry">
                             <option value="Manufacturing">Manufacturing</option>
                             <option value="Retail">Retail</option>
                             <option value="Tech">Tech</option>
@@ -245,13 +245,15 @@
             // Hide all
             sections.forEach(s => s.classList.remove('active'));
             
+            // Remove required from all inputs to prevent hidden validation blocking
+            document.querySelectorAll('input').forEach(input => input.required = false);
+            
             // Show selected
             if (this.value) {
                 document.getElementById('section_' + this.value).classList.add('active');
                 btn.style.display = 'block';
                 
                 // Add required attributes to active section inputs
-                const activeInputs = document.querySelectorAll('#section_' + this.value + ' input');
                 if(this.value === 'pricing') {
                     document.getElementById('current_price').required = true;
                     document.getElementById('current_cost').required = true;
@@ -260,7 +262,7 @@
         });
 
         // Automatically detect environment for API URL
-        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '')
             ? 'http://127.0.0.1:5001'
             : 'https://consulting-engine-backend.onrender.com'; // UPDATE THIS TO YOUR RENDER URL
 
@@ -275,6 +277,10 @@
 
             const formData = new FormData(form);
             const payload = Object.fromEntries(formData.entries());
+            console.log("Sending payload:", payload);
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000);
 
             try {
                 const response = await fetch(`${API_URL}/analyze`, {
@@ -282,19 +288,26 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
                 });
 
+                clearTimeout(timeoutId);
                 const data = await response.json();
 
                 if (!response.ok || data.error) {
-                    throw new Error(data.error || 'Failed to analyze');
+                    throw new Error(data.error || 'Failed to analyze: Server returned ' + response.status);
                 }
 
                 sessionStorage.setItem('analysisResult', JSON.stringify(data));
                 window.location.href = 'result.html';
             } catch (err) {
-                errorMsg.innerText = err.message;
+                console.error("Analysis Error:", err);
+                if (err.name === 'AbortError') {
+                    errorMsg.innerText = 'Request timed out. The server took too long to respond.';
+                } else {
+                    errorMsg.innerText = err.message;
+                }
                 errorMsg.style.display = 'block';
                 btn.innerText = 'Run Analysis';
                 btn.disabled = false;
