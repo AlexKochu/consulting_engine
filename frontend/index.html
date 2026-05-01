@@ -86,7 +86,7 @@
         }
     </style>
     <title>StratifyAI — Intelligent Business Decision Engine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script>
         if (localStorage.getItem('theme') === 'light') {
@@ -259,7 +259,11 @@
             }
         });
 
-        const API_URL = 'http://127.0.0.1:5001';
+        // Automatically detect environment for API URL
+        const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+            ? 'http://127.0.0.1:5001'
+            : 'https://consulting-engine-backend.onrender.com'; // UPDATE THIS TO YOUR RENDER URL
+
         const form = document.getElementById('mainForm');
         const errorMsg = document.getElementById('errorMsg');
 

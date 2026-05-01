@@ -10,13 +10,11 @@ echo "----------------------------------------"
 # 1. Start Backend (Render-ready folder)
 echo "📦 Starting Backend API on port 5001..."
 source venv/bin/activate
-cd backend && python3 app.py &
-cd ..
+(cd backend && python3 app.py) &
 
 # 2. Start Frontend (Vercel-ready folder)
 echo "🌐 Starting Frontend UI on port 3000..."
-cd frontend && python3 -m http.server 3000 &
-cd ..
+(cd frontend && python3 -m http.server 3000 --bind 127.0.0.1) &
 
 echo "----------------------------------------"
 echo "✅ Both services are now running!"
